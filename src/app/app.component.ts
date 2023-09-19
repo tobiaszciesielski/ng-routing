@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PizzaService } from './services/pizza.service';
 
 @Component({
@@ -6,6 +6,4 @@ import { PizzaService } from './services/pizza.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  public constructor(public pizzaService: PizzaService) {}
-}
+export class AppComponent {}

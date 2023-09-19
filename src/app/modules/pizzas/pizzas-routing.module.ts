@@ -9,19 +9,31 @@ const routes: Routes = [
     component: PizzasComponent,
     canActivate: [
       () => {
-        console.log('[GUARD] Lazy loaded child');
+        console.log('[canActivate] Lazy loaded child');
+        return true;
+      },
+    ],
+    canActivateChild: [
+      () => {
+        console.log('[canActivateChild] Lazy loaded child');
         return true;
       },
     ],
     canMatch: [
       () => {
-        console.log('[CAN MATCH] Lazy loaded child');
+        console.log('[canMatch] Lazy loaded child');
         return true;
       },
     ],
     resolve: [
       () => {
-        console.log('[RESOLVER] Lazy loaded child');
+        console.log('[resolve] Lazy loaded child');
+        return true;
+      },
+    ],
+    canDeactivate: [
+      () => {
+        console.log('[canDeactivate] Lazy loaded child');
         return true;
       },
     ],

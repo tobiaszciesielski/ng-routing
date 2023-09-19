@@ -1,29 +1,38 @@
 import { NgModule } from '@angular/core';
 
 import { Route, Router, RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-
 const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
       import('./modules/pizzas/pizzas.module').then((m) => m.PizzasModule),
-
     canActivate: [
       () => {
-        console.log('[GUARD] Parent');
+        console.log('[canActivate] Parent');
+        return true;
+      },
+    ],
+    canActivateChild: [
+      () => {
+        console.log('[canActivateChild] Parent');
         return true;
       },
     ],
     canMatch: [
       () => {
-        console.log('[CAN MATCH] Parent');
+        console.log('[canMatch] Parent');
         return true;
       },
     ],
     resolve: [
       () => {
-        console.log('[RESOLVER] Parent');
+        console.log('[resolve] Parent');
+        return true;
+      },
+    ],
+    canDeactivate: [
+      () => {
+        console.log('[canDeactivate] Parent');
         return true;
       },
     ],
