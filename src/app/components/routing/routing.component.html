@@ -1,0 +1,7 @@
+<!-- <h1>Pizza with id: {{ pizzaId }}</h1>
+Name: {{ pizza?.name }} Price: {{ pizza?.price }} -->
+
+<ng-container *ngIf="pizza$ | async as pizza">
+  <h1>Pizza with id: {{ pizza.id }}</h1>
+  Name: {{ pizza.name }} Price: {{ pizza.price }}
+</ng-container>

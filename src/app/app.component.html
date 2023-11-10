@@ -1,3 +1,23 @@
-<h1>Welcome in pizzeria!</h1>
+<div style="display: flex; gap: 20px">
+  <a routerLink="manual-subscribe"><button>Manual subscribe</button></a>
 
-<router-outlet />
+  <div>
+    Routing
+    <a [routerLink]="['', 'routing', '1']"><button>Pizza 1</button></a>
+    <a [routerLink]="['', 'routing', '2']"><button>Pizza 2</button></a>
+  </div>
+
+  <div>
+    Form
+    <a [routerLink]="['', 'form', '']"><button>Form</button></a>
+    <a [routerLink]="['', 'form', '1']"><button>Form</button></a>
+  </div>
+
+  <a routerLink="pizza-maker"><button>Navigation</button></a>
+
+  <a routerLink="complex-state"><button>Complex state</button></a>
+</div>
+
+<br />
+
+<router-outlet></router-outlet>

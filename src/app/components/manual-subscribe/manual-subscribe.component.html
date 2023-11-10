@@ -1,0 +1,15 @@
+<h1>Manual subscribe</h1>
+
+<!-- IMPERATIVE -->
+<!-- <ul>
+  <li *ngFor="let pizza of pizzas">
+    {{ pizza.name }}
+  </li>
+</ul> -->
+
+<!-- DECLARATIVE -->
+<ul>
+  <li *ngFor="let pizza of pizzas$ | async">
+    {{ pizza.name }}
+  </li>
+</ul>

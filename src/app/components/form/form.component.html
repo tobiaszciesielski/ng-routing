@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+  <label for="name">Pizza Name</label>
+  <input
+    id="name"
+    type="text"
+    formControlName="name"
+  />
+
+  <label for="price">Pizza Price</label>
+  <input
+    id="price"
+    type="number"
+    formControlName="price"
+  />
+
+  <button (click)="submitForm()">submit</button>
+</form>

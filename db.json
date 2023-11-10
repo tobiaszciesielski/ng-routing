@@ -4,25 +4,62 @@
       "id": 1,
       "price": 30,
       "name": "margherita",
-      "ingredients": ["cheese", "tomato sauce"]
+      "ingredients": [
+        "cheese",
+        "tomato sauce"
+      ]
     },
     {
       "id": 2,
       "price": 36,
       "name": "peperoni",
-      "ingredients": ["cheese", "tomato sauce", "peperoni"]
+      "ingredients": [
+        "cheese",
+        "tomato sauce",
+        "peperoni"
+      ]
     },
     {
       "id": 3,
       "price": 33,
       "name": "napoli",
-      "ingredients": ["tomato sauce", "anchovies", "capers"]
+      "ingredients": [
+        "tomato sauce",
+        "anchovies",
+        "capers"
+      ]
     },
     {
       "id": 4,
       "price": 28,
       "name": "marinara",
-      "ingredients": ["tomato sauce", "garlic", "oregano"]
+      "ingredients": [
+        "tomato sauce",
+        "garlic",
+        "oregano"
+      ]
+    }
+  ],
+  "desserts": [
+    {
+      "id": 1,
+      "price": 15,
+      "name": "tiramisu",
+      "ingredients": [
+        "coffee",
+        "eggs",
+        "sugar"
+      ]
+    },
+    {
+      "id": 2,
+      "price": 12,
+      "name": "cannoli",
+      "ingredients": [
+        "creme",
+        "pistacho",
+        "peperoni"
+      ]
     }
   ]
 }

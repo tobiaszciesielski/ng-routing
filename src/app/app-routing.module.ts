@@ -1,41 +1,40 @@
 import { NgModule } from '@angular/core';
 
-import { Route, Router, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { PizzaMakerComponent } from './components/guard/resolver.component';
+import { pizzaMakerAliveGuard } from './components/guard/pizza-maker';
+import { ComplexStateComponent } from './components/complex-state/complex-state.component';
+
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () =>
-      import('./modules/pizzas/pizzas.module').then((m) => m.PizzasModule),
-    canActivate: [
-      () => {
-        console.log('[canActivate] Parent');
-        return true;
-      },
-    ],
-    canActivateChild: [
-      () => {
-        console.log('[canActivateChild] Parent');
-        return true;
-      },
-    ],
-    canMatch: [
-      () => {
-        console.log('[canMatch] Parent');
-        return true;
-      },
-    ],
-    resolve: [
-      () => {
-        console.log('[resolve] Parent');
-        return true;
-      },
-    ],
-    canDeactivate: [
-      () => {
-        console.log('[canDeactivate] Parent');
-        return true;
-      },
-    ],
+    path: 'manual-subscribe',
+    loadComponent: () =>
+      import('./components/manual-subscribe/manual-subscribe.component').then(
+        (c) => c.ManualSubscribeComponent,
+      ),
+  },
+  {
+    path: 'routing/:pizzaId',
+    loadComponent: () =>
+      import('./components/routing/routing.component').then(
+        (c) => c.RoutingComponent,
+      ),
+  },
+  {
+    path: 'form/:pizzaId',
+    loadComponent: () =>
+      import('./components/form/form.component').then(
+        (c) => c.PizzaWrapperComponent,
+      ),
+  },
+  {
+    path: 'pizza-maker/:pizzaMakerId',
+    component: PizzaMakerComponent,
+    canActivate: [pizzaMakerAliveGuard],
+  },
+  {
+    path: 'complex-state',
+    component: ComplexStateComponent,
   },
 ];
 

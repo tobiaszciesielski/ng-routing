@@ -1,0 +1,100 @@
+<h1>Order service!</h1>
+
+<div>
+  <div (click)="setPizzaType(PizzaType.Meat)">Meat</div>
+  <div (click)="setPizzaType(PizzaType.Vegan)">Vegan</div>
+  <div (click)="setPizzaType(PizzaType.Vegetarian)">Vegetarian</div>
+</div>
+
+<h3>Menu</h3>
+
+<div *ngIf="!isLoading; else loadingTemplate">
+  <h5>Pizzas</h5>
+
+  <div *ngFor="let pizza of pizzas">
+    {{ pizza.name }}, {{ pizza.price }}
+    <button (click)="addPizzaToOrder(pizza)">select</button>
+  </div>
+
+  <br />
+
+  <div *ngIf="order.length">
+    Selected pizzas:
+    <div *ngFor="let orderedPizza of order; let index = index">
+      {{ orderedPizza.name }}, {{ orderedPizza.price }}
+      <button (click)="removePizzaFromOrder(index)">remove</button>
+    </div>
+
+    Price order: {{ orderPrice }}
+  </div>
+</div>
+
+<ng-template #loadingTemplate>Loading menu...</ng-template>
+<!-- DECLARATIVE -->
+<!-- <h1>Order service!</h1>
+
+<div>
+  <div (click)="pizzaType$$.next(PizzaType.Meat)">Meat</div>
+  <div (click)="pizzaType$$.next(PizzaType.Vegan)">Vegan</div>
+  <div (click)="pizzaType$$.next(PizzaType.Vegetarian)">Vegetarian</div>
+</div>
+
+<h3>Menu</h3>
+
+<div *ngIf="pizzas$ | async as pizzas; else loadingTemplate">
+  <h5>Pizzas</h5>
+
+  <div *ngFor="let pizza of pizzas">
+    {{ pizza.name }}, {{ pizza.name }}
+    <button (click)="addPizzaToOrder(pizza)">select</button>
+  </div>
+
+  <br />
+
+  <div *ngIf="order$$ | async as order">
+    Selected pizzas:
+    <div *ngFor="let orderedPizza of order; let index = index">
+      {{ orderedPizza.name }}, {{ orderedPizza.price }}
+      <button (click)="removePizzaFromOrder(index)">remove</button>
+    </div>
+
+    Price order: {{ orderPrice$ | async }}
+  </div>
+</div>
+
+<ng-template #loadingTemplate>Loading menu...</ng-template> -->
+<!-- EVENT MORE!! -->
+<!-- <h1>Order service!</h1>
+
+<div>
+  <div (click)="pizzaType$$.next(PizzaType.Meat)">Meat</div>
+  <div (click)="pizzaType$$.next(PizzaType.Vegan)">Vegan</div>
+  <div (click)="pizzaType$$.next(PizzaType.Vegetarian)">Vegetarian</div>
+</div>
+
+<h3>Menu</h3>
+
+<div *ngIf="pizzas$ | async as pizzas; else loadingTemplate">
+  <h5>Pizzas</h5>
+
+  <div *ngFor="let pizza of pizzas; let index = index">
+    {{ pizza.name }}, {{ pizza.name }}
+    <button (click)="modifyOrder$$.next({ name: 'add', index })">select</button>
+  </div>
+
+  <br />
+
+  <div *ngIf="order$ | async as order">
+    Selected pizzas:
+    <div *ngFor="let orderedPizza of order; let index = index">
+      {{ orderedPizza.name }}, {{ orderedPizza.price }}
+      <button (click)="modifyOrder$$.next({ name: 'remove', index })">
+        remove
+      </button>
+    </div>
+
+    Price order: {{ orderPrice$ | async }}
+  </div>
+</div>
+
+<ng-template #loadingTemplate>Loading menu...</ng-template> -->
